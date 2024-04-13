@@ -26,6 +26,14 @@ class Stack:
 
 def balance_brackets(some_string):
     test_stack = Stack()
+
+    if len(some_string) == 0:
+        return "Передана пустая строка"
+
+    brackets_counter = [element for element in some_string if element in "()[]{}"]
+    if len(brackets_counter) == 0:
+        return "Строка не содержит скобок"
+
     for element in some_string:
         if element in "([{":
             test_stack.push(element)
@@ -50,6 +58,4 @@ def balance_brackets(some_string):
 
 
 if __name__ == '__main__':
-    print(balance_brackets("(5+1)[1[2]{}]"))
-
-
+    print(balance_brackets(input("Введите пример: ")))
